@@ -1,7 +1,7 @@
 const express = require("express");
 const Blog = require("../models/Bloging");
 
-// create blog
+// create POST method blog
 
 const createBlog = async (req, res) => {
   try {
@@ -16,4 +16,17 @@ const createBlog = async (req, res) => {
   }
 };
 
-module.exports = {createBlog};
+// create GET method
+
+const getBlog = async(req,res)=>{
+    try {
+        const data = await Blog.find();
+        console.log("data fetching successful");
+        res.status(200).json(data);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message : "Internal server error"})
+    }
+}
+
+module.exports = {createBlog, getBlog};
