@@ -11,8 +11,7 @@ const blogSchema = new mongoose.Schema(
       required: true,
     },
     author: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      type: mongoose.Schema.Types.ObjectId, ref: "User",
     },
     tags: [String],
     likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
@@ -20,5 +19,5 @@ const blogSchema = new mongoose.Schema(
   { timeseries: true }
 );
 
-const Blog = mongoose.model('Blog', blogSchema);
+const Blog = mongoose.model("Blog", blogSchema);
 module.exports = Blog;
